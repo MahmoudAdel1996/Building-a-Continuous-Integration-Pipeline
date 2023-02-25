@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: echo "text to output here" > output.txt
+          name: "save data to file"
+          command: echo "text to output here" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
