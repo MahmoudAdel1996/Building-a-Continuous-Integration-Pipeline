@@ -9,10 +9,10 @@ jobs:
       - run:
           name: "Say hello"
           command: echo "text to output here" > output.txt
-      - save_cache:
-          key: v1-my-project-{{ checksum "project.clj" }}
+      - persist_to_workspace:
+          root: ~/
           paths:
-            - ~/.m2
+            - output.txt
 
   say-world:
     docker:
