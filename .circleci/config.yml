@@ -19,14 +19,11 @@ jobs:
       - image: cimg/node:13.8.0
     steps:
       - checkout
-      - run:
-          name: "say world"
+      - attach_workspace:
+          at: ~/
+      - run: 
+          name: "read file saved from other job"
           command: cat ~/output.txt
-      - restore_cache:
-          keys:
-            - v1-my-project-{{ checksum "project.clj" }}
-            - v1-my-project-
-
 workflows:
   say-hello-workflow:
     jobs:
