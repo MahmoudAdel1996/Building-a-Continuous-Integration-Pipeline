@@ -39,7 +39,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - print_pipeline_id
+      - print_id
       - say-hello
       - say-world:
           requires:
