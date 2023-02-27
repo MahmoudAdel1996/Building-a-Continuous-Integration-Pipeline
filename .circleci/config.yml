@@ -16,7 +16,9 @@ jobs:
       - run:
           command: echo the prev job fail
           when: on_fail 
-
+      - run:
+          command: echo the prev job success
+          when: on_success 
 
   say-hello:
     docker:
