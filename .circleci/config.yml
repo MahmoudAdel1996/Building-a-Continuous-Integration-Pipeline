@@ -12,6 +12,11 @@ jobs:
     steps:
       - checkout
       - print_pipeline_id
+      - run: return 1
+      - run:
+          command: echo the prev job fail
+          when: on_fail 
+
 
   say-hello:
     docker:
