@@ -1,6 +1,19 @@
 version: 2.1
+commands:
+  print_pipeline_id:
+    description: "A very simple command for demonstration purposes"
+    steps:
+      - run: echo $CIRCLE_WORKFLOW_ID
 
 jobs:
+  say-godbye:
+    docker:
+      - image: cimg/node:13.8.0
+    steps:
+      - checkout
+      - saygodbye:
+          to: "goodbye parameter"
+
   say-hello:
     docker:
       - image: cimg/node:13.8.0
@@ -27,6 +40,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
+      - print_pipeline_id
       - say-hello
       - say-world:
           requires:
